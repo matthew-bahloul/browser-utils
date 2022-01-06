@@ -1,4 +1,4 @@
-from browser_utils.common_actions import element_interactions, gets, booleans
+from browser_utils.src.common_actions import element_interactions, gets, booleans
 from browser_utils.src import locator
 from re import compile, search
 
@@ -46,7 +46,7 @@ class BaseModal:
     click_and_drag_element = element_interactions.click_and_drag_element
     hover_over_element = element_interactions.hover_over_element
     send_text_to_element = element_interactions.send_text_to_element
-    
+
     # common gets -----------------------------------------------
     get_elements = gets.get_elements
     get_element = gets.get_element

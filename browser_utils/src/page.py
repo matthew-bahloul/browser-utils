@@ -1,4 +1,4 @@
-from browser_utils.common_actions import element_interactions, gets, booleans
+from browser_utils.src.common_actions import element_interactions, gets, booleans
 
 
 class BasePage:
