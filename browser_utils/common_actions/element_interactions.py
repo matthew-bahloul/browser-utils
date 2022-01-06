@@ -1,28 +1,46 @@
+from re import A
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from browser_utils.src.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
-
+import time
 
 @wait_until_displayed
 @wait_for_page_to_load
 def click_element(self, by_locator, x_offset=0, y_offset=0):
+    # I hate this
     element = WebDriverWait(self._driver, self._driver_wait_time).until(EC.visibility_of_element_located(by_locator))
-    
-    chain = ActionChains(self._driver)
-    if x_offset == 0 and y_offset == 0:
-        chain.move_to_element(element).click()
+    scroll_height = self._driver.execute_script('return document.body.scrollHeight')
+    window_size = self._driver.get_window_size()['height']
+    if element.location['y'] > (scroll_height - .5 * window_size):
+        self._driver.execute_script('window.scrollTo(0, document.body.scrollHeight)')
+    elif element.location['y'] < (.5 * window_size):
+        self._driver.execute_script('window.scrollTo(0, 0)')
     else:
-        chain.move_to_element_with_offset(element, x_offset, y_offset).click()
-    chain.perform()
+        self._driver.execute_script(f"window.scrollTo({element.location['x']}, {element.location['y'] - .5 * window_size});")
+    if x_offset == 0 and y_offset == 0:
+        try:
+            WebDriverWait(self._driver, self._driver_wait_time).until(EC.element_to_be_clickable(by_locator)).click()
+        except:
+            WebDriverWait(self._driver, self._driver_wait_time).until(EC.element_to_be_clickable(by_locator)).click()
+    else:
+        ActionChains(self._driver).move_to_element_with_offset(WebDriverWait(self._driver, self._driver_wait_time).until(EC.visibility_of_element_located(by_locator)), x_offset, y_offset).click().perform()
 
 
 @wait_until_displayed
 @wait_for_page_to_load
-def click_and_drag_element(self, by_locator, x_destination, y_desitination):
+def click_and_drag_element_by_offset(self, by_locator, x_destination, y_desitination):
     element = WebDriverWait(self._driver, self._driver_wait_time).until(EC.visibility_of_element_located(by_locator))
-    ActionChains(self._driver).click_and_hold(element).move_by_offset(x_destination, y_desitination).perform()
+    ActionChains(self._driver).drag_and_drop_by_offset(element, x_destination, y_desitination).perform()
+
+
+@wait_until_displayed
+@wait_for_page_to_load
+def click_and_drag_element(self, by_locator_source, by_locator_target):
+    source = WebDriverWait(self._driver, self._driver_wait_time).until(EC.visibility_of_element_located(by_locator_source))
+    target = WebDriverWait(self._driver, self._driver_wait_time).until(EC.visibility_of_element_located(by_locator_target))
+    ActionChains(self._driver).drag_and_drop(source, target).perform()
 
 
 @wait_until_displayed

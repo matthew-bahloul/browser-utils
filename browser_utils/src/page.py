@@ -35,8 +35,12 @@ class BasePage:
     def switch_to_frame(self, frame_reference=None):
         self._driver.switch_to.frame(frame_reference) if frame_reference else self._driver.switch_to.default_content()
 
+    def quit(self):
+        self._driver.quit()
+
     # common element interactions -----------------------------------------------
     click_element = element_interactions.click_element
+    click_and_drag_element_by_offset = element_interactions.click_and_drag_element_by_offset
     click_and_drag_element = element_interactions.click_and_drag_element
     hover_over_element = element_interactions.hover_over_element
     send_text_to_element = element_interactions.send_text_to_element
