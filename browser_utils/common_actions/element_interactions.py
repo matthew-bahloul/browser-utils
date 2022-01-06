@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from browser_utils.src.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
-import time
+
 
 @wait_until_displayed
 @wait_for_page_to_load
