@@ -1,4 +1,4 @@
-from browser_utils.common_actions import element_interactions, gets
+from browser_utils.common_actions import element_interactions, gets, booleans
 
 
 class BasePage:
@@ -6,18 +6,6 @@ class BasePage:
         self._driver = driver
         self._driver_wait_time = wait_time
         self._driver.implicitly_wait(self._driver_wait_time)
-
-    # common element interactions -----------------------------------------------
-    click_element = element_interactions.click_element
-    click_and_drag_element = element_interactions.click_and_drag_element
-    hover_over_element = element_interactions.hover_over_element
-    send_text_to_element = element_interactions.send_text_to_element
-
-    # common gets 
-    get_elements = gets.get_elements
-    get_element = gets.get_element
-    get_element_attribute = gets.get_element_attribute
-    get_element_text = gets.get_element_text
 
     # browser-specific controls -----------------------------------------------
     def get_current_url(self):
@@ -46,3 +34,21 @@ class BasePage:
 
     def switch_to_frame(self, frame_reference=None):
         self._driver.switch_to.frame(frame_reference) if frame_reference else self._driver.switch_to.default_content()
+
+    # common element interactions -----------------------------------------------
+    click_element = element_interactions.click_element
+    click_and_drag_element = element_interactions.click_and_drag_element
+    hover_over_element = element_interactions.hover_over_element
+    send_text_to_element = element_interactions.send_text_to_element
+
+    # common gets -----------------------------------------------
+    get_elements = gets.get_elements
+    get_element = gets.get_element
+    get_element_attribute = gets.get_element_attribute
+    get_element_text = gets.get_element_text
+
+    # common booleans -----------------------------------------------
+    has_attribute = booleans.has_attribute
+    has_text = booleans.has_text
+    is_visible = booleans.is_visible
+    

@@ -1,4 +1,4 @@
-from browser_utils.common_actions import element_interactions, gets
+from browser_utils.common_actions import element_interactions, gets, booleans
 from browser_utils.src import locator
 
 
@@ -20,4 +20,9 @@ class BaseComponent:
     get_element = gets.get_element
     get_element_attribute = gets.get_element_attribute
     get_element_text = gets.get_element_text
+    
+    # common booleans -----------------------------------------------
+    has_attribute = booleans.has_attribute
+    has_text = booleans.has_text
+    is_visible = booleans.is_visible
     

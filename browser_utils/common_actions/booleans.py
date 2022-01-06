@@ -20,7 +20,7 @@ def has_text(self, by_locator, text, is_case_sensitive=False):
 @wait_for_page_to_load
 def is_visible(self, by_locator):
     try:
-        el = self.driver.find_element(*by_locator)
+        el = self._driver.find_element(*by_locator)
         return el.is_displayed()
     except Exception:
         return False
