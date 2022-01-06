@@ -10,9 +10,9 @@ def __get_locator_by_re(locators, pattern):
 
 class BaseModal:
     def __init__(self, driver, wait_time=5):
-        self.__driver = driver
-        self.__driver_wait_time = wait_time
-        self.__driver.implicitly_wait(self.__driver_wait_time)
+        self._driver = driver
+        self._driver_wait_time = wait_time
+        self._driver.implicitly_wait(self._driver_wait_time)
         self.locators = locator.BaseLocator()
     
     # modal specific -----------------------------------------------

@@ -1,5 +1,4 @@
 from functools import wraps
-from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -20,7 +19,7 @@ def wait_for_page_to_load(function):
     return wrapper
 
 
-def wait_until_displayed():
+def wait_until_displayed(function):
     @wraps(function)
     def wrapper(self, *args, **kwargs):
         try:
@@ -31,7 +30,7 @@ def wait_until_displayed():
     return wrapper
 
 
-def wait_until_not_displayed():
+def wait_until_not_displayed(function):
     @wraps(function)
     def wrapper(self, *args, **kwargs):
         try:

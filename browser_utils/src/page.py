@@ -3,9 +3,9 @@ from browser_utils.common_actions import element_interactions, gets
 
 class BasePage:
     def __init__(self, driver, wait_time=5):
-        self.__driver = driver
-        self.__driver_wait_time = wait_time
-        self.__driver.implicitly_wait(self.__driver_wait_time)
+        self._driver = driver
+        self._driver_wait_time = wait_time
+        self._driver.implicitly_wait(self._driver_wait_time)
 
     # common element interactions -----------------------------------------------
     click_element = element_interactions.click_element
@@ -21,28 +21,28 @@ class BasePage:
 
     # browser-specific controls -----------------------------------------------
     def get_current_url(self):
-        return self.__driver.current_url
+        return self._driver.current_url
 
     def get_current_title(self):
-        return self.__driver.title
+        return self._driver.title
 
     def go_to_url(self, url):
-        self.__driver.get(url)
+        self._driver.get(url)
 
     def refresh(self) -> None:
-        self.__driver.refresh()
+        self._driver.refresh()
 
     def go_back(self) -> None:
-        self.__driver.back()
+        self._driver.back()
 
     def go_forward(self) -> None:
-        self.__driver.forward()
+        self._driver.forward()
 
     def scroll_to_position_on_page(self, x_position, y_position):
-        self.__driver.execute_script(f'window.scrollTo({x_position}, {y_position})')
+        self._driver.execute_script(f'window.scrollTo({x_position}, {y_position})')
     
     def switch_to_tab(self, tab_position):
-        self.__driver.switch_to.window(self.__driver.window_handles[tab_position])
+        self._driver.switch_to.window(self._driver.window_handles[tab_position])
 
     def switch_to_frame(self, frame_reference=None):
-        self.__driver.switch_to.frame(frame_reference) if frame_reference else self.__driver.switch_to.default_content()
+        self._driver.switch_to.frame(frame_reference) if frame_reference else self._driver.switch_to.default_content()
