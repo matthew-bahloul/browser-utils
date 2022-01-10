@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Matthew Bahloul",
     author_email="matthew.bahloul@gmail.com",
-    description="Base classes for use with page-objects",
+    description="Base classes and utilities for use with browser automation",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/matthew-bahloul/browser-utils",
