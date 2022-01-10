@@ -1,15 +1,22 @@
-from browser_utils.src.waits import wait_for_page_to_load, wait_until_displayed
+"""
+    by_locator        : tuple --> (<selenium By object>, <selector string>)
+    attribute         : str   --> 'attribute of an html element'
+    text              : str   --> 'text of the element'
+    is_case_sensitive : bool  --> boolean to toggle case sensitivity
+"""
+
+from browser_utils.src.common_actions.waits import wait_for_page_to_load, wait_until_displayed
 
 
 @wait_until_displayed
 @wait_for_page_to_load
-def has_attribute(self, by_locator, attribute):
+def has_attribute(self, by_locator: tuple, attribute: str) -> bool:
     return self._driver.find_element(*by_locator).get_attribute(attribute) != None
 
 
 @wait_until_displayed
 @wait_for_page_to_load
-def has_text(self, by_locator, text, is_case_sensitive=False):
+def has_text(self, by_locator: tuple, text: str, is_case_sensitive:bool=False) -> bool:
     element_text = self._driver.find_element(*by_locator).text
 
     if is_case_sensitive:
@@ -18,15 +25,9 @@ def has_text(self, by_locator, text, is_case_sensitive=False):
 
 
 @wait_for_page_to_load
-def is_visible(self, by_locator):
+def is_visible(self, by_locator: tuple) -> bool:
     try:
         el = self._driver.find_element(*by_locator)
         return el.is_displayed()
     except Exception:
         return False
-# from browser_utils.src import page
-# from selenium import webdriver
-# from selenium.webdriver import ActionChains
-# from webdriver_manager.chrome import ChromeDriverManager
-# pg = page.BasePage(webdriver.Chrome(ChromeDriverManager().install()))
-# pg.go_to_url('https://blueprintprep.com')

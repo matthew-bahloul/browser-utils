@@ -41,20 +41,20 @@ class BaseModal:
     cancel = decline
 
     # common element interactions -----------------------------------------------
-    click_element = element_interactions.click_element
-    click_and_drag_element_by_offset = element_interactions.click_and_drag_element_by_offset
-    click_and_drag_element = element_interactions.click_and_drag_element
-    hover_over_element = element_interactions.hover_over_element
-    send_text_to_element = element_interactions.send_text_to_element
+    click_element =                     element_interactions.click_element
+    click_and_drag_element_by_offset =  element_interactions.click_and_drag_element_by_offset
+    click_and_drag_element =            element_interactions.click_and_drag_element
+    hover_over_element =                element_interactions.hover_over_element
+    send_text_to_element =              element_interactions.send_text_to_element
 
     # common gets -----------------------------------------------
-    get_elements = gets.get_elements
-    get_element = gets.get_element
-    get_element_attribute = gets.get_element_attribute
-    get_element_text = gets.get_element_text
+    get_elements =                      gets.get_elements
+    get_element =                       gets.get_element
+    get_element_attribute =             gets.get_element_attribute
+    get_element_text =                  gets.get_element_text
     
     # common booleans -----------------------------------------------
-    has_attribute = booleans.has_attribute
-    has_text = booleans.has_text
-    is_visible = booleans.is_visible
+    has_attribute =                     booleans.has_attribute
+    has_text =                          booleans.has_text
+    is_visible =                        booleans.is_visible
     
