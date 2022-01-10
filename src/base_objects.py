@@ -1,4 +1,4 @@
-from browser_utils.src.common_actions import element_interactions, gets, booleans
+from src.common_actions import element_interactions, gets, booleans
 from re import compile, search
 
 
