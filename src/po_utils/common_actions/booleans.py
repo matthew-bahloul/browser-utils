@@ -5,7 +5,7 @@
     is_case_sensitive : bool  --> boolean to toggle case sensitivity
 """
 
-from src.common_actions.waits import wait_for_page_to_load, wait_until_displayed
+from po_utils.common_actions.waits import wait_for_page_to_load, wait_until_displayed
 
 
 @wait_until_displayed

@@ -14,7 +14,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-from src.common_actions.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
+from po_utils.common_actions.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
 
 
 @wait_until_displayed

@@ -3,7 +3,7 @@
     attribute  : str   --> 'attribute of an html element'
 """
 
-from src.common_actions.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
+from po_utils.common_actions.waits import wait_for_page_to_load, wait_until_displayed, wait_until_not_displayed
 
 
 @wait_until_displayed
